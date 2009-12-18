@@ -43,7 +43,7 @@ import org.apache.maven.plugin.MojoFailureException;
  * The folder CNTL has special meaning as all members are assumed
  * to be submittable to jes.
  * 
- * @goal submit
+ * @goal upload
  * @description z/OS source upload plugin
  */
 public class ZosUploadMojo extends AbstractMojo {
