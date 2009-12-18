@@ -140,6 +140,17 @@ public class ZosUploadMojo extends AbstractMojo {
     /**
      * Uploads all eligible source files from inputfolder and then
      * submit the JCLs if any.
+     * <p/>
+     * Each sub folder in inputfolder (apart from hidden folders whose
+     * name start with a period) is assumed to correspond to a PDS on
+     * z/OS. The name of that PDS is built from remoteFilesPrefix and
+     * the sub folder name.
+     * <p/>
+     * A sub folder named CNTL is assumed to contain JCL that we want 
+     * to submit for execution. If the names of JCLs to submit are
+     * explicitly requested using jclFileNames, then only these JCLs
+     * are submitted. Otherwise all files in CNTL are submitted.
+     * 
      * @param ftpZosClient the FTP client
      * @throws MojoFailureException if job submission fails
      * @throws MojoExecutionException if upload fails
@@ -157,9 +168,10 @@ public class ZosUploadMojo extends AbstractMojo {
     		return;
     	}
 
-    	/* Upload all source files. */
+    	/* Get each sub folder in turn if they are not hidden, build a PDS name
+    	 * and upload all files in the sub folder. */
     	for (File subFolder : subFolders) {
-    		if (subFolder.isDirectory()) {
+    		if (subFolder.isDirectory() && subFolder.getName().charAt(0) != '.') {
 	    		String name = subFolder.getName();
 	    		String remote = remoteFilesPrefix + '.' + name;
 	    		for (File local : subFolder.listFiles()) {
