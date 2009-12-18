@@ -1,0 +1,15 @@
+#summary User guide.
+
+= Introduction =
+
+The zosupload [http://maven.apache.org/ Maven] plugin is a utility to help with uploading z/OS source code as part of a Maven build lifecycle.
+
+It is usually necessary to upload source files in different PDS libraries on z/OS and also to be able to submit JCL (such as compilation) on z/OS and check the return codes as part of the build process.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
