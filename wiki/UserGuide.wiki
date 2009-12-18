@@ -1,4 +1,5 @@
 #summary How to use the plugin.
+#labels Featured,Phase-Deploy
 
 = Introduction =
 
@@ -81,4 +82,3 @@ If order is important, then you have to provide an additional element to the plu
 }}}
 
 With this configuration, all files from target/zos/CNTL are uploaded to MYUSERID.SRCE.CNTL but only 3 JCL are actually submitted in the order specified.
-
