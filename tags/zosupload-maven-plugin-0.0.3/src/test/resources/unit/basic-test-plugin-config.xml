@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.legsem.legstar</groupId>
+                <artifactId>zosjes-maven-plugin</artifactId>
+                <configuration>
+                    <hostName>${legstar-dev-zos-host}</hostName>
+                    <hostUserId>${legstar-dev-zos-userid}</hostUserId>
+                    <hostPassword>${legstar-dev-zos-password}</hostPassword>
+                    <inputFolder>src/test/resources/zos</inputFolder>
+                    <remoteFilesPrefix>P390.LIB</remoteFilesPrefix>
+                </configuration>
+            </plugin>
+        </plugins>
+	</build>
+</project>
