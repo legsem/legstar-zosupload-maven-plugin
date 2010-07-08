@@ -3,7 +3,7 @@
     <groupId>com.legsem.legstar</groupId>
     <artifactId>zosupload-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>LegStar z/OS upload plugin</name>
     <description>LegStar maven plugin for z/OS source file upload and job submission</description>
     <url>http://code.google.com/p/legstar-zosupload-maven-plugin</url>
@@ -13,9 +13,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:svn:http://legstar-zosupload-maven-plugin.googlecode.com/svn/tags/zosupload-maven-plugin-0.0.3</connection>
-        <developerConnection>scm:svn:https://legstar-zosupload-maven-plugin.googlecode.com/svn/tags/zosupload-maven-plugin-0.0.3</developerConnection>
-        <url>http://legstar-zosupload-maven-plugin.googlecode.com/svn/tags/zosupload-maven-plugin-0.0.3</url>
+        <connection>scm:svn:http://legstar-zosupload-maven-plugin.googlecode.com/svn/trunk/</connection>
+        <developerConnection>scm:svn:https://legstar-zosupload-maven-plugin.googlecode.com/svn/trunk/</developerConnection>
+        <url>http://legstar-zosupload-maven-plugin.googlecode.com/svn/trunk/</url>
     </scm>
 
     <mailingLists>
