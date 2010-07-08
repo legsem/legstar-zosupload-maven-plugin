@@ -40,7 +40,11 @@ public class FtpZosClient {
 	private static final Pattern COND_CODE_PATTERN =
 		Pattern.compile("COND CODE (\\d{4})", Pattern.CASE_INSENSITIVE);
 
-	/**
+    /** Completion code in case of abend.*/
+    private static final Pattern COMPLETION_CODE_PATTERN =
+        Pattern.compile("COMPLETION CODE - SYSTEM=(\\d{3})", Pattern.CASE_INSENSITIVE);
+
+    /**
 	 * No-arg constructor.
 	 */
 	public FtpZosClient() {
@@ -170,13 +174,21 @@ public class FtpZosClient {
 	
 	/**
 	 * Extracts the highest condition code from a job output.
+	 * First look for a potential abend then, if none if found,
+	 * examine each step condition code and keep the highest.
 	 * @param heldOutput the job held output
 	 * @return the highest condition code
 	 */
 	public int getHighestCondCode(final String heldOutput) {
 		int maxCondCode = -1;
-		Matcher matcher = COND_CODE_PATTERN.matcher(heldOutput);
-		while(matcher.find()) {
+        Matcher matcher = COMPLETION_CODE_PATTERN.matcher(heldOutput);
+        if (matcher.find()) {
+            int completionCode = Integer.parseInt(matcher.group(1));
+            return completionCode;
+        }
+
+		matcher = COND_CODE_PATTERN.matcher(heldOutput);
+		while (matcher.find()) {
 			int condCode = Integer.parseInt(matcher.group(1));
 			maxCondCode = (condCode > maxCondCode) ? condCode : maxCondCode;
 		}

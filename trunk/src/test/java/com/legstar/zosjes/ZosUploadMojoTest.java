@@ -96,6 +96,23 @@ public class ZosUploadMojoTest extends AbstractMojoTestCase {
     }
 
     /**
+     * Test what happens when a job abends.
+     * @throws Exception if test fails
+     */
+    public void testAbendedExecution() {
+        try {
+            ZosUploadMojo mojo = new ZosUploadMojo();
+            configureMojo (mojo, "zosjes-maven-plugin", getTestPom() );
+            mojo.remoteFilesPrefix = "P390.LIB";
+            mojo.inputFolder = new File("src/test/resources/zosabend");
+            mojo.execute();
+        } catch (Exception e) {
+            assertEquals("Job submitted to z/OS failed.  Highest condition code: 806",
+                    e.getMessage());
+        }
+    }
+
+    /**
      * Return a test pom where variables have been replaced by actual values.
      * @throws IOException if test pom cannot be read
      */
