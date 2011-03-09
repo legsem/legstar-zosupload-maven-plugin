@@ -12,16 +12,7 @@ It is usually necessary to upload source files in different PDS libraries on z/O
 
 == POM elements ==
 
-The first element you want to add to your POM is a repository that points to the location where the plugin resides:
-
-{{{
-        <repository>
-            <id>LegStar distribution</id>
-            <url>http://www.legsem.com/legstar/maven/repo</url>
-        </repository>
-}}}
-
-Then in your plugins section add a plugin description such as:
+In your maven POM your plugins section add a plugin description such as:
 
 {{{
             <!-- Upload sources and submit JCL. -->
