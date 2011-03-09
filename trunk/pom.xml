@@ -1,12 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>5</version>
+    </parent>
+
     <groupId>com.legsem.legstar</groupId>
     <artifactId>zosupload-maven-plugin</artifactId>
-    <packaging>maven-plugin</packaging>
     <version>0.0.4-SNAPSHOT</version>
+    <packaging>maven-plugin</packaging>
+
     <name>LegStar z/OS upload plugin</name>
     <description>LegStar maven plugin for z/OS source file upload and job submission</description>
     <url>http://code.google.com/p/legstar-zosupload-maven-plugin</url>
+
     <issueManagement>
         <system>Google Code Issue Tracking</system>
         <url>http://code.google.com/p/legstar-zosupload-maven-plugin/issues/list</url>
@@ -56,23 +64,11 @@
     </organization>
 
     <distributionManagement>
-        <downloadUrl>http://www.legsem.com/legstar/mavenrepo</downloadUrl>
         <site>
             <id>local.website</id>
             <name>Local Website</name>
             <url>file:///${legstar-dev-website-local-dir}/legstar-zosupload-maven-plugin</url>
         </site>
-        <repository>
-            <id>ftp-release-repository</id>
-            <name>LEGSTAR Distributions Repository</name>
-            <url>ftp://ftp.legsem.com/public_html/legstar/maven/repo</url>
-        </repository>
-        <snapshotRepository>
-            <id>ftp-snapshots-repository</id>
-            <name>LEGSTAR Distributions Snapshot Repository</name>
-            <url>ftp://ftp.legsem.com/public_html/legstar/maven/snapshots</url>
-            <uniqueVersion>false</uniqueVersion>
-        </snapshotRepository>
     </distributionManagement>
 
     <dependencies>
