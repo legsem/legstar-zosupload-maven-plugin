@@ -12,7 +12,7 @@ It is usually necessary to upload source files in different PDS libraries on z/O
 
 == POM elements ==
 
-In your maven POM your plugins section add a plugin description such as:
+In your maven POM plugins section add a plugin description such as:
 
 {{{
             <!-- Upload sources and submit JCL. -->
